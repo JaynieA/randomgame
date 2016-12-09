@@ -1,3 +1,22 @@
 #playMode {
   display: none;
 }
+form {
+  margin: 20px auto;
+}
+.playerGuess {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #515150;
+  border-radius: 4px;
+}
+.playerGuess p {
+  text-align: center;
+}
+.playerGuess p:first-of-type {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.playerGuess p:last-of-type {
+  text-transform: uppercase;
+}
