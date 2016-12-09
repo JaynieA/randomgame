@@ -1,3 +1,4 @@
+/* LAYOUT */
 #playMode {
   display: none;
 }
@@ -19,4 +20,12 @@ form {
 }
 .playerGuess p:last-of-type {
   text-transform: uppercase;
+}
+/* MODAL */
+.modal-header {
+  background-color: green;
+  color: #fff;
+}
+.modal-body p {
+  text-align: center;
 }

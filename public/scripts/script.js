@@ -20,8 +20,8 @@ var displayGuessDetails = function(array){
   for (var i = 0; i < array.length; i++) {
     if (array[i].difference === 'match') {
       //add functionality to display that this player wins on dom, and button to restart game
-      alert(array[i].name + ' wins!');
-      console.log(array[i].name, "wins");
+      $('.modal-body').append('<p>' + array[i].name + ' Wins!</p>');
+      $('#myModal').modal('show');
     } else {
       // display past guess details on dom
       $('#pastGuess').append('<div class="playerGuessContainer col-sm-3"></div>');
@@ -104,4 +104,8 @@ $(document).ready(function(){
     $('#playMode').hide();
     $('#inputMode').show();
   }); // end #abandon
+  $('#closeModal').on('click', function() {
+    $('#inputMode').show();
+    $('#playMode').hide();
+  });
 }); // end doc ready
