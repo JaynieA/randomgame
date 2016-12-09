@@ -31,8 +31,8 @@ var displayGuessDetails = function(array){
       $guess.append('<p>'+ array[i].name +'</p>');
       $guess.append('<p>Last guess: ' + array[i].guess + '</p>');
       $guess.append('<p>' + array[i].difference + '</p>');
-    }
-  }
+    } // end else
+  } // end for
 }; // end displayGuessDetails
 
 var postMaxNum = function(num) {
