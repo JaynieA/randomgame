@@ -69,7 +69,11 @@ $(document).ready(function(){
   if (logs) console.log('JQ');
   //event listeners
   $('#startButton').on('click', function(){
+    guessesMade = 0;
+    $('#count').html('Guesses Made: '+guessesMade);
     $('#inputMode').hide();
+    //clear past guesses from display
+    $('#pastGuess').html('');
     $('#playMode').show();
     if (logs) console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
