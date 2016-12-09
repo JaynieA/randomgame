@@ -1,5 +1,5 @@
 var players = [];
-var roundCount = 1;
+var guessesMade = 0;
 //constructor function
 var Player = function(name, guess){
   this.name = name;
@@ -73,8 +73,8 @@ $(document).ready(function(){
     //clear input values
     $('input').val('');
     //increment the current round of the game, display on DOM
-    roundCount++;
-    $('#count').html('Round #'+roundCount);
+    guessesMade++;
+    $('#count').html('Guesses Made: '+guessesMade);
   }); // end #startButtonnp
   $('#abandon').on('click', function() {
     console.log('abandon clicked');
