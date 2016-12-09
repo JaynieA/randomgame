@@ -25,13 +25,13 @@ var postMaxNum = function(num) {
   }); // end ajax
 }; // end postMaxNum
 
-var postInputs = function(players) {
+var postInputs = function(playersArray) {
   $.ajax({
     type: "POST",
-    data: {players},
+    data: {players: playersArray},
     url: '/postInputs',
     success: function(response) {
-      console.log('postInputs ajax success');
+      console.log('postInputs ajax success. response: ', response);
     },
     error: function(){
       console.log('get max ajax error');

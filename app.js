@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var urlEncodedParser = bodyParser.urlencoded({extended:false});
+var urlEncodedParser = bodyParser.urlencoded({extended:true});
 var maxNum;
 
 app.use(express.static('public'));
@@ -16,8 +16,8 @@ var rand = function(maxNum){
 }; // end rand
 
 app.post('/getMax', urlEncodedParser, function(req, res){
-  console.log('/getMax url hit');
-  console.log('req.body:',req.body);
+  // console.log('/getMax url hit');
+  console.log('get Max req.body:',req.body);
   res.send(req.body);
   maxNum = req.body.num;
   var gameNumber = rand(maxNum);
@@ -26,7 +26,8 @@ app.post('/getMax', urlEncodedParser, function(req, res){
 }); // end getMax post
 
 app.post('/postInputs', urlEncodedParser, function(req, res){
-  console.log('/postInputs url hit');
-  console.log('req.body:',req.body);
-  res.send(req.body);
+  // console.log('/postInputs url hit');
+  console.log('post Inputs req.body.players:',req.body.players);
+  //do logic to figure out differences between guesses and game number (populating the difference property) here
+  res.send(req.body.players);
 }); // end postInput post
