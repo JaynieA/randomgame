@@ -1,5 +1,3 @@
-console.log("Sourced");
-
 var players = [];
 //constructor function
 var Player = function(guess){
@@ -24,7 +22,7 @@ var postMaxNum = function(num) {
     error: function(){
       console.log('get max ajax error');
     }
-  });
+  }); // end ajax
 }; // end postMaxNum
 
 var postInputs = function(players) {
@@ -38,7 +36,7 @@ var postInputs = function(players) {
     error: function(){
       console.log('get max ajax error');
     }
-  });
+  }); // end ajax
 }; // end postMaxNum
 
 $(document).ready(function(){
@@ -49,7 +47,7 @@ $(document).ready(function(){
     $('#playMode').show();
     console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
-    console.log(maxNum);
+    console.log('max number input:',maxNum);
     postMaxNum(maxNum);
   }); // end #startButtonnp
   $('#submit').on('click', function(){
@@ -61,16 +59,14 @@ $(document).ready(function(){
     //   four:$('#playerFour').val()
     // };
     //create player objects
-    // var playerOne = new Player($('#playerOne').val());
     playerOne.guess = $('#playerOne').val();
     playerTwo.guess = $('#playerTwo').val();
     playerThree.guess = $('#playerThree').val();
     playerFour.guess = $('#playerFour').val();
-    console.log(playerOne, playerTwo, playerThree, playerFour);
+    console.log('Players array: ' , players);
     //send input array as an object to the server
-    console.log(players);
     postInputs(players);
+    //clear input values
     $('input').val('');
   }); // end #startButtonnp
-
-});
+}); // end doc ready

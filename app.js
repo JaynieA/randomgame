@@ -5,17 +5,15 @@ var bodyParser = require('body-parser');
 var urlEncodedParser = bodyParser.urlencoded({extended:false});
 var maxNum;
 
-
-var rand = function(maxNum){
-  var randomNumber = parseInt(Math.random() * maxNum) + 1;
-  console.log(randomNumber);
-
-};
 app.use(express.static('public'));
 
 app.listen(1776, function(){
   console.log('Listening!');
-});
+}); // end app listen
+
+var rand = function(maxNum){
+  return parseInt(Math.random() * maxNum) + 1;
+}; // end rand
 
 app.post('/getMax', urlEncodedParser, function(req, res){
   console.log('/getMax url hit');
@@ -23,14 +21,12 @@ app.post('/getMax', urlEncodedParser, function(req, res){
   res.send(req.body);
   maxNum = req.body.num;
   var gameNumber = rand(maxNum);
-  console.log(maxNum);
-  console.log(gameNumber);
-});
-
-
+  console.log('Max number:', maxNum);
+  console.log('Game number:', gameNumber);
+}); // end getMax post
 
 app.post('/postInputs', urlEncodedParser, function(req, res){
   console.log('/postInputs url hit');
   console.log('req.body:',req.body);
   res.send(req.body);
-});
+}); // end postInput post
