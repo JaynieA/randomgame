@@ -50,10 +50,10 @@ $(document).ready(function(){
     console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
     //display max number on DOM
-    $('#maxNumber').html('Max Number:'+maxNum);
+    $('#maxNumber').html('Max Number: '+maxNum);
     console.log('max number input:',maxNum);
     postMaxNum(maxNum);
-  }); // end #startButtonnp
+  }); // end #startButton
   $('#submit').on('click', function(){
     console.log('submit clicked');
     // var inputs = {
@@ -76,4 +76,9 @@ $(document).ready(function(){
     roundCount++;
     $('#count').html('Round #'+roundCount);
   }); // end #startButtonnp
+  $('#abandon').on('click', function() {
+    console.log('abandon clicked');
+    $('#playMode').hide();
+    $('#inputMode').show();
+  }); // end #abandon
 }); // end doc ready
