@@ -1,4 +1,4 @@
-console.log("Suurced");
+console.log("Sourced");
 
 var postMaxNum = function(num) {
   $.ajax({
@@ -40,6 +40,8 @@ $(document).ready(function(){
   console.log('JQ');
   //event listeners
   $('#startButton').on('click', function(){
+    $('#inputMode').hide();
+    $('#playMode').show();
     console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
     console.log(maxNum);
