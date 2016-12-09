@@ -1,4 +1,5 @@
 var players = [];
+var roundCount = 1;
 //constructor function
 var Player = function(name, guess){
   this.name = name;
@@ -48,6 +49,8 @@ $(document).ready(function(){
     $('#playMode').show();
     console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
+    //display max number on DOM
+    $('#maxNumber').html('Max Number:'+maxNum);
     console.log('max number input:',maxNum);
     postMaxNum(maxNum);
   }); // end #startButtonnp
@@ -69,5 +72,8 @@ $(document).ready(function(){
     postInputs(players);
     //clear input values
     $('input').val('');
+    //increment the current round of the game, display on DOM
+    roundCount++;
+    $('#count').html('Round #'+roundCount);
   }); // end #startButtonnp
 }); // end doc ready
