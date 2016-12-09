@@ -1,5 +1,6 @@
 var players = [];
 var guessesMade = 0;
+var logs = false;
 //constructor function
 var Player = function(name, guess){
   this.name = name;
@@ -14,12 +15,12 @@ var playerThree = new Player('Player Three');
 var playerFour = new Player('Player Four');
 
 var displayGuessDetails = function(array){
-  console.log('in displayGuessDetails');
+  if (logs) console.log('in displayGuessDetails');
   //clear pastGuess div
   $('#pastGuess').html('');
   for (var i = 0; i < array.length; i++) {
     if (array[i].difference === 'match') {
-      //add functionality to display that this player wins on dom, and button to restart game
+      //show modal displaying the winner
       $('.modal-body').append('<p>' + array[i].name + ' Wins!</p>');
       $('#myModal').modal('show');
     } else {
@@ -39,12 +40,12 @@ var postMaxNum = function(num) {
   $.ajax({
     type: "POST",
     data: {num: num},
-    url: '/getMax',
+    url: '/postMax',
     success: function(response) {
-      console.log('postMaxNum ajax success');
+      if (logs) console.log('postMaxNum ajax success');
     },
     error: function(){
-      console.log('get max ajax error');
+      if (logs) console.log('get max ajax error');
     }
   }); // end ajax
 }; // end postMaxNum
@@ -55,30 +56,30 @@ var postInputs = function(playersArray) {
     data: {players: playersArray},
     url: '/postInputs',
     success: function(response) {
-      console.log('postInputs ajax success. response: ', response);
+      if (logs) console.log('postInputs ajax success. response: ', response);
       displayGuessDetails(response);
     },
     error: function(){
-      console.log('get max ajax error');
+      if (logs) console.log('get max ajax error');
     }
   }); // end ajax
 }; // end postMaxNum
 
 $(document).ready(function(){
-  console.log('JQ');
+  if (logs) console.log('JQ');
   //event listeners
   $('#startButton').on('click', function(){
     $('#inputMode').hide();
     $('#playMode').show();
-    console.log('start clicked');
+    if (logs) console.log('start clicked');
     var maxNum = $('#maxNumIn').val();
     //display max number on DOM
     $('#maxNumber').html('Max Number: '+maxNum);
-    console.log('max number input:',maxNum);
+    if (logs) console.log('max number input:',maxNum);
     postMaxNum(maxNum);
   }); // end #startButton
   $('#submit').on('click', function(){
-    console.log('submit clicked');
+    if (logs) console.log('submit clicked');
     // var inputs = {
     //   one:$('#playerOne').val(),
     //   two:$('#playerTwo').val(),
@@ -90,7 +91,7 @@ $(document).ready(function(){
     playerTwo.guess = $('#playerTwo').val();
     playerThree.guess = $('#playerThree').val();
     playerFour.guess = $('#playerFour').val();
-    console.log('Players array: ' , players);
+    if (logs) console.log('Players array: ' , players);
     //send input array as an object to the server
     postInputs(players);
     //clear input values
@@ -100,7 +101,7 @@ $(document).ready(function(){
     $('#count').html('Guesses Made: '+guessesMade);
   }); // end #startButtonnp
   $('#abandon').on('click', function() {
-    console.log('abandon clicked');
+    if (logs) console.log('abandon clicked');
     $('#playMode').hide();
     $('#inputMode').show();
   }); // end #abandon
