@@ -1,15 +1,16 @@
 var players = [];
 //constructor function
-var Player = function(guess){
+var Player = function(name, guess){
+  this.name = name;
   this.guess = guess;
   this.difference = undefined;
   players.push(this);
 };
 //make player objects
-var playerOne = new Player();
-var playerTwo = new Player();
-var playerThree = new Player();
-var playerFour = new Player();
+var playerOne = new Player('Player One');
+var playerTwo = new Player('Player Two');
+var playerThree = new Player('Player Three');
+var playerFour = new Player('Player Four');
 
 var postMaxNum = function(num) {
   $.ajax({
