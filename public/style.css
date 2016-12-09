@@ -22,9 +22,16 @@ form {
   text-transform: uppercase;
 }
 /* MODAL */
+.modal {
+  top: 10%;
+}
+.modal-dialog {
+  width: 50%;
+}
 .modal-header {
   background-color: green;
   color: #fff;
+  text-align: center;
 }
 .modal-body p {
   text-align: center;
