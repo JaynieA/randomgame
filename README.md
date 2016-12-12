@@ -41,9 +41,9 @@ AKA Client Demands...
 
 * [x] All random number stuff should happen on the server. Generation of the random number upon game start as well as comparisons between guesses and the random correct answer.
 
-Take a moment to discuss with your team members why this is something that a client may demand.  
+* [x] Take a moment to discuss with your team members why this is something that a client may demand.  
 
-Once you get it working, style it up, yo!
+* [x] Once you get it working, style it up, yo!
 
 
 Stretch Goals
