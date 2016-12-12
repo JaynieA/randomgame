@@ -1,15 +1,42 @@
-/* LAYOUT */
-#playMode {
-  display: none;
+/* GLOBAL */
+html, body {
+  background: url('images/numbers.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 1px 2px rgba(0,0,0,0.8);
 }
 form {
   margin: 20px auto;
 }
+label {
+  padding: 0px 10px;
+}
+hr {
+  width: 50%;
+  margin-bottom: 40px;
+}
+/* LAYOUT */
+.container {
+  margin-top: 10%;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  padding: 20px;
+}
+#playMode {
+  display: none;
+}
 .playerGuess {
+  color: black;
+  text-shadow: none;
   margin: 10px;
   padding: 10px;
-  border: 2px solid #515150;
+  border: 2px solid black;
   border-radius: 4px;
+  background-color: white;
 }
 .playerGuess p {
   text-align: center;
@@ -21,8 +48,26 @@ form {
 .playerGuess p:last-of-type {
   text-transform: uppercase;
 }
+/* BUTTONS */
+.btn {
+  border-radius: 0px;
+  margin-left: 10px;
+  background-color: transparent;
+  color: white;
+  box-sizing: border-box;
+  border: 2px solid white;
+  transition: 0.2s ease-in-out;
+}
+  .btn:hover {
+    background-color: white;
+    border: 2px solid transparent;
+  }
+.abandon-game {
+  margin-top: 20px;
+}
 /* MODAL */
 .modal {
+  text-shadow: none;
   top: 10%;
 }
 .modal-dialog {

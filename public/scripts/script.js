@@ -70,7 +70,7 @@ $(document).ready(function(){
   //event listeners
   $('#startButton').on('click', function(){
     guessesMade = 0;
-    $('#count').html('Guesses Made: '+guessesMade);
+    $('#count').html('Guesses Made: '+guessesMade+'<hr>');
     $('#inputMode').hide();
     //clear past guesses from display
     $('#pastGuess').html('');
